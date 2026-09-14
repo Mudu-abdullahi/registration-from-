@@ -14,7 +14,6 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     if (!isSignIn) {
       if (password !== confirmPassword) {
         alert("Passwords do not match");
@@ -23,7 +22,7 @@ function App() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/signup",
+          "https://registration-backend-q8n0.onrender.com/api/auth/signup",
           {
             method: "POST",
             headers: {
@@ -54,12 +53,10 @@ function App() {
         console.error("Registration error:", error);
         alert("Something went wrong. Please try again.");
       }
-    }
-    
-    else {
+    } else {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/signin",
+          "https://registration-backend-q8n0.onrender.com/api/auth/signin",
           {
             method: "POST",
             headers: {
@@ -93,7 +90,6 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-        
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">
@@ -108,7 +104,6 @@ function App() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-
           {/* Name */}
           {!isSignIn && (
             <div>
@@ -224,4 +219,3 @@ function App() {
 }
 
 export default App;
-
